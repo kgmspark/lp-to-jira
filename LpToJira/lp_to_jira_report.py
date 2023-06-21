@@ -257,7 +257,7 @@ def print_html_report(db, file):
         line += "\t<td>%s</td>\n" % \
             ("multiple packages" if len(entry['Packages'].split(",")) > 2
                 else entry['Packages'])
-        line += "\t<td>%s</td>\n" % % entry['Milestone']
+        line += "\t<td>%s</td>\n" % entry['Milestone']
 
         for serie in series:
             line += ("\t" + status_cell(entry[serie]) + "\n")
