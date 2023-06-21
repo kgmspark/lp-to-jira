@@ -41,6 +41,7 @@ colummns = ["Jira ID",
             "Heat",
             "Importance",
             "Packages",
+            "Milestone",
             ] + series
 
 importance_color = {
@@ -256,6 +257,7 @@ def print_html_report(db, file):
         line += "\t<td>%s</td>\n" % \
             ("multiple packages" if len(entry['Packages'].split(",")) > 2
                 else entry['Packages'])
+        line += "\t<td>%s</td>\n" % % entry['Milestone']
 
         for serie in series:
             line += ("\t" + status_cell(entry[serie]) + "\n")
@@ -363,7 +365,6 @@ def find_issues_in_project(api, project):
                 'Summary': summary,
                 'Status': issue.fields.status.name,
                 'LaunchPad ID': lpbug_id,
-                'Milestone': '',           
                 'Heat': '',
                 'Importance': '',
                 'Packages': '',
