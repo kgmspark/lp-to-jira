@@ -369,7 +369,7 @@ def find_issues_in_project(api, project):
                 'Importance': '',
                 'Packages': '',
                 "Devel": '',
-                'tags': lpbug_tags,
+                'tags': '',
             }
             found_issues.append(entry)
 
@@ -471,7 +471,7 @@ def merge_lp_data_with_jira_issues(jira, lp, issues, sync=False):
         print("#", flush=True, end='')
         lpbug_importance = ""
         lpbug_devel = ""
-        lpbug_tags = ""
+        
 
 
         try:
