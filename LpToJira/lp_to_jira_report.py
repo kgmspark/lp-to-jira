@@ -41,7 +41,7 @@ colummns = ["Jira ID",
             "Heat",
             "Importance",
             "Packages",
-            "Milestone",
+            "tags",
             ] + series
 
 importance_color = {
@@ -257,7 +257,7 @@ def print_html_report(db, file):
         line += "\t<td>%s</td>\n" % \
             ("multiple packages" if len(entry['Packages'].split(",")) > 2
                 else entry['Packages'])
-        line += "\t<td>%s</td>\n" % entry['Milestone']
+        line += "\t<td>%s</td>\n" % entry['tags']
 
         for serie in series:
             line += ("\t" + status_cell(entry[serie]) + "\n")
@@ -369,7 +369,7 @@ def find_issues_in_project(api, project):
                 'Importance': '',
                 'Packages': '',
                 "Devel": '',
-                'Milestone': lpbug_milestone,
+                'tags': lpbug_tags,
             }
             found_issues.append(entry)
 
@@ -471,7 +471,7 @@ def merge_lp_data_with_jira_issues(jira, lp, issues, sync=False):
         print("#", flush=True, end='')
         lpbug_importance = ""
         lpbug_devel = ""
-        lpbug_milestone = ""
+        lpbug_tags = ""
 
 
         try:
@@ -514,7 +514,7 @@ def merge_lp_data_with_jira_issues(jira, lp, issues, sync=False):
             issue['Importance'] = lpbug_importance
             issue['Packages'] = pkg
             issue["Devel"] = lpbug_devel
-            issue['Milestone'] = lpbug_milestone
+            issue['tags'] = lpbug_tags
 
             if sync:
                 jira_key = issue["JIRA ID"]
