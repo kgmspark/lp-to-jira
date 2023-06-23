@@ -105,7 +105,7 @@ class lp_bug():
     def __str__(self):
         string = "LP: #{} : {}".format(self.id, self.title)
         string += "\nHeat: {}".format(self.heat)
-        string += "\ntags: {}".format(self.tags)
+        string = "Tags: {}".format(self.tags)
         for pkg in self.affected_packages:
             string += "\n - {}:".format(pkg)
             for serie in self.affected_series(pkg):
@@ -123,6 +123,7 @@ class lp_bug():
         dict['id'] = self.id
         dict['title'] = self.title
         dict['packages'] = self.packages_info
+        dict['tags'] = self.tags
 
         return dict
 
