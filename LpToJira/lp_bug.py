@@ -41,7 +41,7 @@ class lp_bug():
             package_name = ""
 
             task_name = task.bug_target_name
-            if " (Ubuntu" in task_name:
+            if " (Evergreen" in task_name:
                 package_name = task_name.split()[0]
 
                 if package_name not in self.packages_info.keys():
@@ -49,7 +49,7 @@ class lp_bug():
 
                 # Grab the Ubuntu serie our of the task name
                 # Set the serie to ubuntu_devel is empty
-                serie = task_name[task_name.index("Ubuntu")+7:-1]
+                serie = task_name[task_name.index("Evergreen")+7:-1]
                 if serie == '':
                     serie = ubuntu_devel
                 elif serie not in ubuntu_version.keys():
