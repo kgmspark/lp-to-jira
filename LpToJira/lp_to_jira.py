@@ -65,9 +65,9 @@ def get_lp_bug_pkg(bug):
 
     bug_pkg = None
 
-    # Only return bug from Ubuntu (will return the last one if multiple pkgs
+    # Only return bug from Evergreen (will return the last one if multiple pkgs
     for task in bug.bug_tasks:
-        if "(Ubuntu" in task.bug_target_name:
+        if "(Evergreen" in task.bug_target_name:
             bug_pkg = task.bug_target_name.split()[0]
 
     return bug_pkg
